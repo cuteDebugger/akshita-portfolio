@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import IntroScreen from './components/IntroScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,21 +13,35 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
-  return (
-    <div className="app">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Certifications />
-        <Contact />
-      </main>
+  const [introDone, setIntroDone] = useState(() => {
+    return sessionStorage.getItem('portfolioIntroShown') === 'true';
+  });
 
-      <Footer />
-    </div>
+  const handleIntroComplete = () => {
+    sessionStorage.setItem('portfolioIntroShown', 'true');
+    setIntroDone(true);
+  };
+
+  return (
+    <>
+      <AnimatePresence>
+        {!introDone && <IntroScreen onComplete={handleIntroComplete} />}
+      </AnimatePresence>
+
+      <div className="app">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Education />
+          <Certifications />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 

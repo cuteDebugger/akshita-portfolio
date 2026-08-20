@@ -22,8 +22,8 @@ const DiagonalArrowIcon = () => (
     </svg>
 );
 
-const CertCard = ({ num, title, org, platform }) => (
-    <motion.a variants={itemVariants} href="#" className="cert-card" onClick={e => e.preventDefault()}>
+const CertCard = ({ num, title, org, platform, link }) => (
+    <motion.a variants={itemVariants} href={link} target="_blank" rel="noopener noreferrer" className="cert-card">
         <div className="cert-card-top">
             <span className="cert-number">{num}</span>
             <DiagonalArrowIcon />
@@ -33,6 +33,7 @@ const CertCard = ({ num, title, org, platform }) => (
             <div className="cert-meta">
                 <span className="cert-org">{org}</span>
                 <span className="cert-platform">{platform}</span>
+                <span className="cert-link-text">View Certificate ↗</span>
             </div>
         </div>
     </motion.a>
@@ -67,28 +68,32 @@ const Certifications = () => {
                         title="Introduction to Object-Oriented Programming with Java"
                         org="LearnQuest"
                         platform="Coursera"
+                        link="/certificates/java.pdf"
                     />
                     <CertCard
                         num="02"
                         title="Inheritance and Data Structures in Java"
                         org="University of Pennsylvania"
                         platform="Coursera"
+                        link="/certificates/java-dsa.pdf"
                     />
                     <CertCard
                         num="03"
                         title="Crash Course on Python"
                         org="Google"
                         platform="Coursera"
+                        link="/certificates/html-css-js.pdf"
                     />
                     <CertCard
                         num="04"
                         title="Exploratory Data Analysis for Machine Learning"
                         org="IBM"
                         platform="Coursera"
+                        link="/certificates/ml-eda.pdf"
                     />
                 </div>
             </motion.div>
-        </section>
+        </section >
     );
 };
 

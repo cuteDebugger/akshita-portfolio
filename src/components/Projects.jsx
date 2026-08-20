@@ -91,10 +91,7 @@ const Projects = () => {
                             </div>
 
                             <div className="project-actions">
-                                <a href="https://mind-compass-ai-frontend.onrender.com/" target="_blank" rel="noopener noreferrer" className="btn-project primary">
-                                    View Project <ExternalLinkIcon />
-                                </a>
-                                <a href="https://github.com/Jatan06/Mind-Compass-AI" target="_blank" rel="noopener noreferrer" className="btn-project secondary">
+                                <a href="https://github.com/Jatan06/Mind-Compass-AI" target="_blank" rel="noopener noreferrer" className="btn-project primary">
                                     GitHub <GitHubIcon />
                                 </a>
                                 <a href="https://mind-compass-ai-frontend.onrender.com/" target="_blank" rel="noopener noreferrer" className="btn-project secondary">
@@ -181,9 +178,6 @@ const Projects = () => {
 
                             <div className="project-actions">
                                 <a href="https://github.com/BhavyaDoriya/MatchMate" target="_blank" rel="noopener noreferrer" className="btn-project primary">
-                                    View Project <ExternalLinkIcon />
-                                </a>
-                                <a href="https://github.com/BhavyaDoriya/MatchMate" target="_blank" rel="noopener noreferrer" className="btn-project secondary">
                                     GitHub <GitHubIcon />
                                 </a>
                             </div>

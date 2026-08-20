@@ -65,7 +65,6 @@ const Footer = () => {
             <div className="footer-bottom">
                 <div className="container footer-bottom-flex">
                     <p className="copyright">© 2026 Akshita Gupta</p>
-                    <p className="tech-badge">Made with React • Three.js • Tailwind</p>
                 </div>
             </div>
 
