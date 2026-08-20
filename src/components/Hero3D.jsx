@@ -13,81 +13,37 @@ const CameraRig = () => {
     return null;
 };
 
-// 2. Realistic 3D Procedural Avatar
-const RealisticAvatar = () => {
-    const avatarRef = useRef();
+// 2. High-Quality GLB Avatar Architecture
+// The user will provide public/models/akshita-avatar.glb
+// Using Suspense and useGLTF to load the model if available.
+import { useGLTF } from '@react-three/drei';
 
+const AvatarGLB = () => {
+    // IMPORTANT: Uncomment this block when public/models/akshita-avatar.glb is provided.
+    /*
+    const { scene } = useGLTF('/models/akshita-avatar.glb');
+    const avatarRef = useRef();
+    
     useFrame((state) => {
         if (avatarRef.current) {
-            avatarRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.05 - 0.5;
+            avatarRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.05 - 1.5;
             avatarRef.current.rotation.y = THREE.MathUtils.lerp(avatarRef.current.rotation.y, (state.mouse.x * 0.2), 0.05);
             avatarRef.current.rotation.x = THREE.MathUtils.lerp(avatarRef.current.rotation.x, -(state.mouse.y * 0.1), 0.05);
         }
     });
 
+    return <primitive object={scene} ref={avatarRef} position={[0, -1.5, 2.5]} scale={1.2} />;
+    */
+
+    // Placeholder rendering until GLB is supplied to avoid crashing the Canvas
     return (
-        <group ref={avatarRef} position={[0, -0.6, 2.5]}>
-            {/* High-quality White Professional Shirt / Torso */}
-            <mesh position={[0, -1.3, 0]}>
-                <cylinderGeometry args={[0.6, 0.75, 1.6, 64]} />
-                <meshPhysicalMaterial color="#ffffff" roughness={0.8} clearcoat={0.1} />
-            </mesh>
-
-            {/* Neck */}
-            <mesh position={[0, -0.4, 0]}>
-                <cylinderGeometry args={[0.15, 0.2, 0.4, 32]} />
-                <meshPhysicalMaterial color="#E8C3A8" roughness={0.4} />
-            </mesh>
-
-            {/* Head (Natural Skin Tone) */}
-            <mesh position={[0, 0.15, 0.1]}>
-                <sphereGeometry args={[0.5, 64, 64]} />
-                <meshPhysicalMaterial color="#E8C3A8" roughness={0.3} clearcoat={0.1} />
-            </mesh>
-
-            {/* Long Straight Dark Hair */}
-            <group position={[0, 0.2, -0.05]}>
-                <mesh position={[0, 0, -0.05]}>
-                    <sphereGeometry args={[0.53, 64, 64, 0, Math.PI * 2, 0, Math.PI / 1.7]} />
-                    <meshPhysicalMaterial color="#11050A" roughness={0.5} clearcoat={0.6} />
-                </mesh>
-                <mesh position={[0, -0.7, -0.2]}>
-                    <cylinderGeometry args={[0.52, 0.65, 1.8, 64, 1, false, Math.PI * 0.3, Math.PI * 1.4]} />
-                    <meshPhysicalMaterial color="#11050A" roughness={0.5} clearcoat={0.6} />
-                </mesh>
-            </group>
-
-            {/* Glasses with Realistic Transmission Lenses */}
-            <group position={[0, 0.25, 0.55]}>
-                <mesh position={[-0.2, 0, 0]}>
-                    <torusGeometry args={[0.14, 0.015, 32, 64]} />
-                    <meshPhysicalMaterial color="#11050A" metalness={0.8} roughness={0.2} />
-                </mesh>
-                <mesh position={[-0.2, 0, -0.01]} rotation={[Math.PI / 2, 0, 0]}>
-                    <cylinderGeometry args={[0.13, 0.13, 0.01, 32]} />
-                    <meshPhysicalMaterial color="#ffffff" transmission={1} opacity={1} roughness={0} ior={1.5} thickness={0.5} />
-                </mesh>
-
-                <mesh position={[0.2, 0, 0]}>
-                    <torusGeometry args={[0.14, 0.015, 32, 64]} />
-                    <meshPhysicalMaterial color="#11050A" metalness={0.8} roughness={0.2} />
-                </mesh>
-                <mesh position={[0.2, 0, -0.01]} rotation={[Math.PI / 2, 0, 0]}>
-                    <cylinderGeometry args={[0.13, 0.13, 0.01, 32]} />
-                    <meshPhysicalMaterial color="#ffffff" transmission={1} opacity={1} roughness={0} ior={1.5} thickness={0.5} />
-                </mesh>
-
-                <mesh position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-                    <cylinderGeometry args={[0.01, 0.01, 0.08, 16]} />
-                    <meshPhysicalMaterial color="#11050A" metalness={0.8} roughness={0.2} />
-                </mesh>
-            </group>
-
-            {/* Dark Lanyard */}
-            <mesh position={[0, -0.5, 0.5]} rotation={[0.4, 0, 0]}>
-                <torusGeometry args={[0.3, 0.015, 16, 64]} />
-                <meshPhysicalMaterial color="#11050A" roughness={0.8} />
-            </mesh>
+        <group position={[0, -0.6, 2.5]}>
+            <Html center position={[0, 1, 0]}>
+                <div style={{ background: 'rgba(90, 22, 53, 0.8)', padding: '0.5rem 1rem', borderRadius: '8px', color: '#ffb6c9', fontSize: '0.9rem', whiteSpace: 'nowrap', border: '1px solid #e57399' }}>
+                    GLB Avatar Asset Required<br />
+                    <small>(/models/akshita-avatar.glb)</small>
+                </div>
+            </Html>
         </group>
     );
 };
@@ -208,7 +164,7 @@ export default function Hero3D() {
                     <Sparkles count={isMobile ? 30 : 100} scale={10} size={1.5} speed={0.4} color="#ffb6c9" opacity={0.3} position={[0, 0, -2]} />
 
                     {/* Advanced Procedural 3D Character Rendering */}
-                    <RealisticAvatar />
+                    <AvatarGLB />
 
                     {/* Foreground Elements (In front of character) */}
                     <Sparkles count={isMobile ? 15 : 50} scale={4} size={2} speed={0.5} color="#fff7fa" opacity={0.8} position={[0, 0, 3.5]} />
