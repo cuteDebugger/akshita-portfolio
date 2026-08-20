@@ -91,11 +91,14 @@ const Projects = () => {
                             </div>
 
                             <div className="project-actions">
-                                <a href="#" className="btn-project primary" onClick={(e) => e.preventDefault()}>
+                                <a href="https://mind-compass-ai-frontend.onrender.com/" target="_blank" rel="noopener noreferrer" className="btn-project primary">
                                     View Project <ExternalLinkIcon />
                                 </a>
-                                <a href="#" className="btn-project secondary" onClick={(e) => e.preventDefault()}>
+                                <a href="https://github.com/Jatan06/Mind-Compass-AI" target="_blank" rel="noopener noreferrer" className="btn-project secondary">
                                     GitHub <GitHubIcon />
+                                </a>
+                                <a href="https://mind-compass-ai-frontend.onrender.com/" target="_blank" rel="noopener noreferrer" className="btn-project secondary">
+                                    Live Demo <ExternalLinkIcon />
                                 </a>
                             </div>
                         </div>
@@ -177,10 +180,10 @@ const Projects = () => {
                             </div>
 
                             <div className="project-actions">
-                                <a href="#" className="btn-project primary" onClick={(e) => e.preventDefault()}>
+                                <a href="https://github.com/BhavyaDoriya/MatchMate" target="_blank" rel="noopener noreferrer" className="btn-project primary">
                                     View Project <ExternalLinkIcon />
                                 </a>
-                                <a href="#" className="btn-project secondary" onClick={(e) => e.preventDefault()}>
+                                <a href="https://github.com/BhavyaDoriya/MatchMate" target="_blank" rel="noopener noreferrer" className="btn-project secondary">
                                     GitHub <GitHubIcon />
                                 </a>
                             </div>
@@ -235,14 +238,7 @@ const Projects = () => {
                                 </div>
                             </div>
 
-                            <div className="project-actions">
-                                <a href="#" className="btn-project primary" onClick={(e) => e.preventDefault()}>
-                                    View Project <ExternalLinkIcon />
-                                </a>
-                                <a href="#" className="btn-project secondary" onClick={(e) => e.preventDefault()}>
-                                    GitHub <GitHubIcon />
-                                </a>
-                            </div>
+                            {/* No external links for Skill Matrix */}
                         </motion.div>
 
                     </div>
