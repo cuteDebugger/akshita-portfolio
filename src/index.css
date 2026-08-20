@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-dark: #12030a;
+  --bg-burgundy: #2c0919;
+  --bg-wine: #4a102a;
+  
+  --accent-rose: #e57399;
+  --accent-pink-soft: #f4b4c8;
+  
+  --text-warm-white: #fdf8fa;
+  --text-muted: #d5b8c3;
+  --text-dark: #12030a;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(44, 9, 25, 0.6);
+  --glass-border: rgba(229, 115, 153, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* Utils */
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --nav-height: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-warm-white);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: radial-gradient(circle at 15% 50%, rgba(74, 16, 42, 0.15), transparent 40%),
+                    radial-gradient(circle at 85% 30%, rgba(229, 115, 153, 0.08), transparent 40%);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Base button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-rose), var(--bg-wine));
+  color: var(--text-warm-white);
+  box-shadow: 0 4px 15px rgba(229, 115, 153, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(229, 115, 153, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-warm-white);
+  border: 2px solid var(--accent-rose);
+}
+
+.btn-secondary:hover {
+  background: rgba(229, 115, 153, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Utility Animations */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Structure */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}

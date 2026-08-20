@@ -1,0 +1,9 @@
+/* 
+  Cleared out Vite boilerplate styles.
+  All global and theme styling is now consolidated in index.css.
+*/
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

@@ -1,0 +1,337 @@
+/* src/components/Skills.css */
+.skills-section {
+    padding: 6rem 0 8rem;
+    background: linear-gradient(180deg, var(--bg-burgundy) 0%, var(--bg-dark) 100%);
+    position: relative;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* TOP ROW */
+.skills-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+.skills-header {
+    flex: 1;
+    max-width: 500px;
+}
+
+.skills-headline {
+    font-size: 2.25rem;
+    color: var(--text-warm-white);
+    line-height: 1.2;
+    margin: 1.5rem 0 1rem;
+    font-weight: 600;
+}
+
+.skills-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* CONSTELLATION */
+.skills-constellation {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.constellation-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.c-line {
+    stroke: var(--accent-rose);
+    stroke-width: 1.5;
+    opacity: 0.4;
+    transition: var(--transition-smooth);
+}
+
+.skills-constellation:hover .c-line {
+    opacity: 0.6;
+}
+
+.c-line.faint {
+    opacity: 0.15;
+    stroke-dasharray: 4 4;
+}
+
+.skills-constellation:hover .c-line.faint {
+    opacity: 0.3;
+}
+
+.c-node {
+    position: absolute;
+    background: var(--bg-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--accent-rose);
+    color: var(--text-warm-white);
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(229, 115, 153, 0.2);
+    transition: var(--transition-smooth);
+    cursor: default;
+}
+
+.c-node:hover {
+    box-shadow: 0 0 20px rgba(229, 115, 153, 0.6);
+    background: rgba(229, 115, 153, 0.15);
+    color: var(--accent-pink-soft);
+}
+
+.center-node {
+    padding: 1rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--bg-wine), var(--bg-burgundy));
+    border: 2px solid var(--accent-rose);
+    font-weight: 700;
+    letter-spacing: 2px;
+    box-shadow: 0 0 25px rgba(229, 115, 153, 0.4);
+}
+
+/* Positioning based on the 400x400 viewBox */
+.node-pos-1 {
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.node-pos-2 {
+    top: 30%;
+    right: 15%;
+    transform: translate(50%, -50%);
+}
+
+.node-pos-3 {
+    top: 30%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+.node-pos-4 {
+    bottom: 30%;
+    right: 15%;
+    transform: translate(50%, 50%);
+}
+
+.node-pos-5 {
+    bottom: 30%;
+    left: 15%;
+    transform: translate(-50%, 50%);
+}
+
+.node-pos-6 {
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.node-pos-1:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.node-pos-2:hover {
+    transform: translate(50%, -50%) scale(1.1);
+}
+
+.node-pos-3:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.node-pos-4:hover {
+    transform: translate(50%, 50%) scale(1.1);
+}
+
+.node-pos-5:hover {
+    transform: translate(-50%, 50%) scale(1.1);
+}
+
+.node-pos-6:hover {
+    transform: translate(-50%, 50%) scale(1.1);
+}
+
+
+/* CATEGORY CARDS */
+.category-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.category-card:hover {
+    border-color: rgba(229, 115, 153, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(229, 115, 153, 0.3);
+}
+
+.card-header h4 {
+    color: var(--accent-pink-soft);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.cat-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill-chip {
+    background: rgba(229, 115, 153, 0.1);
+    border: 1px solid rgba(229, 115, 153, 0.2);
+    color: var(--text-warm-white);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+}
+
+.category-card:hover .skill-chip {
+    border-color: rgba(229, 115, 153, 0.3);
+}
+
+.skill-chip:hover {
+    background: var(--accent-rose);
+    color: var(--bg-dark);
+    border-color: var(--accent-rose);
+    transform: scale(1.05);
+}
+
+/* LEARNING INDICATOR */
+.learning-indicator {
+    border-top: 1px solid var(--glass-border);
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.learning-title {
+    color: var(--text-muted);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.learning-topics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.learning-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.learning-text {
+    color: var(--text-warm-white);
+    font-size: 0.95rem;
+}
+
+.progress-bar {
+    width: 120px;
+    height: 3px;
+    background: rgba(90, 22, 53, 0.4);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-rose);
+    box-shadow: 0 0 10px var(--accent-rose);
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+    .skills-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .skills-header {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills-constellation {
+        max-width: 350px;
+    }
+
+    .learning-topics {
+        gap: 2rem;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-constellation {
+        max-width: 100%;
+        transform: scale(0.9);
+    }
+}
