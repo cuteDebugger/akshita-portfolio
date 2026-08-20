@@ -53,12 +53,11 @@ const Footer = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="footer-socials"
                 >
-                    {/* Placeholders per instruction */}
-                    <a href="#" className="social-link" onClick={e => e.preventDefault()}>GitHub</a>
+                    <a href="https://github.com/cuteDebugger" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
                     <span className="social-dot">•</span>
-                    <a href="#" className="social-link" onClick={e => e.preventDefault()}>LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/akshita-gupta-88085a381" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
                     <span className="social-dot">•</span>
-                    <a href="#" className="social-link" onClick={e => e.preventDefault()}>Email</a>
+                    <a href="mailto:gakshita103@gmail.com" className="social-link">Email</a>
                 </motion.div>
 
             </div>

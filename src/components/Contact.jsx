@@ -92,27 +92,27 @@ const Contact = () => {
                     <div className="contact-card">
                         <div className="contact-info-rows">
 
-                            <a href="#" className="contact-row" onClick={e => e.preventDefault()}>
+                            <a href="mailto:gakshita103@gmail.com" className="contact-row">
                                 <div className="contact-icon"><MailIcon /></div>
                                 <div className="contact-details">
                                     <span className="contact-label">Email</span>
-                                    <span className="contact-value">your-email@example.com</span>
+                                    <span className="contact-value">gakshita103@gmail.com</span>
                                 </div>
                             </a>
 
-                            <a href="#" className="contact-row" onClick={e => e.preventDefault()}>
+                            <a href="https://www.linkedin.com/in/akshita-gupta-88085a381" target="_blank" rel="noopener noreferrer" className="contact-row">
                                 <div className="contact-icon"><LinkedInIcon /></div>
                                 <div className="contact-details">
                                     <span className="contact-label">LinkedIn</span>
-                                    <span className="contact-value">linkedin.com/in/your-profile</span>
+                                    <span className="contact-value">linkedin.com/in/akshita-gupta-88085a381</span>
                                 </div>
                             </a>
 
-                            <a href="#" className="contact-row" onClick={e => e.preventDefault()}>
+                            <a href="https://github.com/cuteDebugger" target="_blank" rel="noopener noreferrer" className="contact-row">
                                 <div className="contact-icon"><GitHubIcon /></div>
                                 <div className="contact-details">
                                     <span className="contact-label">GitHub</span>
-                                    <span className="contact-value">github.com/your-username</span>
+                                    <span className="contact-value">github.com/cuteDebugger</span>
                                 </div>
                             </a>
 
