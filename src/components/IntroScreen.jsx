@@ -14,12 +14,19 @@ const IntroScreen = ({ onComplete }) => {
             return;
         }
 
-        // The extended intro animation scales and fades outward gracefully spanning up to 4.5s total.
-        const timer = setTimeout(() => {
-            onComplete();
-        }, 4500);
+        document.body.style.overflow = 'hidden';
 
-        return () => clearTimeout(timer);
+        // The intro screen should fade out revealing the Hero around 3s.
+        // We'll trigger onComplete around 2.5s to start the exit transition.
+        const timer = setTimeout(() => {
+            document.body.style.overflow = '';
+            onComplete();
+        }, 2500);
+
+        return () => {
+            clearTimeout(timer);
+            document.body.style.overflow = '';
+        };
     }, [onComplete]);
 
     if (reducedMotion) return null; // Fallback immediately if reduced motion is enabled
@@ -42,7 +49,7 @@ const IntroScreen = ({ onComplete }) => {
                 className="intro-content-wrapper"
                 initial={{ scale: 1, opacity: 1 }}
                 animate={{ scale: 1.05, opacity: 0 }}
-                transition={{ delay: 3.5, duration: 1.0, ease: "easeInOut" }}
+                transition={{ delay: 2.0, duration: 0.8, ease: "easeInOut" }}
             >
                 <div className="intro-content">
                     <motion.h1
@@ -51,7 +58,8 @@ const IntroScreen = ({ onComplete }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 1.0, ease: "easeOut" }}
                     >
-                        AKSHITA GUPTA
+                        <span>AKSHITA</span>
+                        <span>GUPTA</span>
                     </motion.h1>
                     <motion.h2
                         className="intro-subtitle"

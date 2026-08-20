@@ -1,12 +1,12 @@
 /* src/components/IntroScreen.css */
 .intro-screen {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     background: linear-gradient(135deg, #12030a 0%, #300c1c 100%);
-    z-index: 9999;
+    z-index: 999999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +83,9 @@
     color: #fff7fa;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
 }
 
 .intro-subtitle {
@@ -139,13 +142,17 @@
 /* Responsive */
 @media (max-width: 768px) {
     .intro-title {
-        font-size: 2rem;
-        letter-spacing: 0.25em;
+        font-size: 2.2rem;
+        letter-spacing: 0.2em;
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-bottom: 1rem;
     }
 
     .intro-subtitle {
-        font-size: 0.75rem;
-        letter-spacing: 0.3em;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        white-space: nowrap;
     }
 
     .intro-orbit {
