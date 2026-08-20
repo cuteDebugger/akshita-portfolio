@@ -1,6 +1,6 @@
 import React, { useRef, Suspense, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Sparkles, Html } from '@react-three/drei';
+import { Float, Sparkles, Html, Image } from '@react-three/drei';
 import * as THREE from 'three';
 
 // 1. Camera Parallax Rig
@@ -13,38 +13,24 @@ const CameraRig = () => {
     return null;
 };
 
-// 2. High-Quality GLB Avatar Architecture
-// The user will provide public/models/akshita-avatar.glb
-// Using Suspense and useGLTF to load the model if available.
-import { useGLTF } from '@react-three/drei';
+// 2. True 3D Avatar Image Layer
+const AvatarLayer = () => {
+    const meshRef = useRef();
 
-const AvatarGLB = () => {
-    // IMPORTANT: Uncomment this block when public/models/akshita-avatar.glb is provided.
-    /*
-    const { scene } = useGLTF('/models/akshita-avatar.glb');
-    const avatarRef = useRef();
-    
     useFrame((state) => {
-        if (avatarRef.current) {
-            avatarRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.05 - 1.5;
-            avatarRef.current.rotation.y = THREE.MathUtils.lerp(avatarRef.current.rotation.y, (state.mouse.x * 0.2), 0.05);
-            avatarRef.current.rotation.x = THREE.MathUtils.lerp(avatarRef.current.rotation.x, -(state.mouse.y * 0.1), 0.05);
+        if (meshRef.current) {
+            meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.2) * 0.1 - 0.5;
         }
     });
 
-    return <primitive object={scene} ref={avatarRef} position={[0, -1.5, 2.5]} scale={1.2} />;
-    */
-
-    // Placeholder rendering until GLB is supplied to avoid crashing the Canvas
     return (
-        <group position={[0, -0.6, 2.5]}>
-            <Html center position={[0, 1, 0]}>
-                <div style={{ background: 'rgba(90, 22, 53, 0.8)', padding: '0.5rem 1rem', borderRadius: '8px', color: '#ffb6c9', fontSize: '0.9rem', whiteSpace: 'nowrap', border: '1px solid #e57399' }}>
-                    GLB Avatar Asset Required<br />
-                    <small>(/models/akshita-avatar.glb)</small>
-                </div>
-            </Html>
-        </group>
+        <Image
+            ref={meshRef}
+            url="/images/akshita-avatar-transparent.png"
+            position={[0, -0.5, 2.5]}
+            scale={[3.5, 4.5]} // Arbitrary scale, will double-check visual sizing
+            transparent={true}
+        />
     );
 };
 
@@ -163,8 +149,8 @@ export default function Hero3D() {
                     <OrbitalRings />
                     <Sparkles count={isMobile ? 30 : 100} scale={10} size={1.5} speed={0.4} color="#ffb6c9" opacity={0.3} position={[0, 0, -2]} />
 
-                    {/* Advanced Procedural 3D Character Rendering */}
-                    <AvatarGLB />
+                    {/* Stylized Avatar Image Layer */}
+                    <AvatarLayer />
 
                     {/* Foreground Elements (In front of character) */}
                     <Sparkles count={isMobile ? 15 : 50} scale={4} size={2} speed={0.5} color="#fff7fa" opacity={0.8} position={[0, 0, 3.5]} />
